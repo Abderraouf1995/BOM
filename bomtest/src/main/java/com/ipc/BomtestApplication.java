@@ -23,6 +23,7 @@ public class BomtestApplication {
 		ApplicationContext ctx = SpringApplication.run(BomtestApplication.class, args);
 		IdocStatusRepository  idocStatusRepository =  ctx.getBean(IdocStatusRepository.class);
 		BomHeadRepository bomHeadRepository =  ctx.getBean(BomHeadRepository.class);
+		
 		BomItemsRepository bomItemsRepository =  ctx.getBean(BomItemsRepository.class);
 		
 //		System.out.println("SEQ_TRANBOMHEAD.nextval="+bomHeadRepository.getNextSequenceNextValue());
