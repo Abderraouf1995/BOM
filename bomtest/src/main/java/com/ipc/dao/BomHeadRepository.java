@@ -12,7 +12,9 @@ public interface BomHeadRepository extends JpaRepository<BomHead, Long> {
 	
 
 	 @Query(value = "SELECT SEQ_TRANBOMHEAD.nextval FROM dual", nativeQuery = true)
-	 public Long getNextSequenceValue();
+	 public Long getNextSequenceNextValue();
+	 @Query(value = "SELECT SEQ_TRANBOMHEAD.currval FROM dual", nativeQuery = true)
+	 public Long getNextSequenceCurrValue();
 	 
 
 }

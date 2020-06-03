@@ -21,12 +21,25 @@ public class BomtestApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(BomtestApplication.class, args);
+		IdocStatusRepository  idocStatusRepository =  ctx.getBean(IdocStatusRepository.class);
+		BomHeadRepository bomHeadRepository =  ctx.getBean(BomHeadRepository.class);
+		BomItemsRepository bomItemsRepository =  ctx.getBean(BomItemsRepository.class);
+		
+//		System.out.println("SEQ_TRANBOMHEAD.nextval="+bomHeadRepository.getNextSequenceNextValue());
+//		System.out.println("SEQ_TRANBOMHEAD.currval="+bomHeadRepository.getNextSequenceCurrValue());
+//		System.out.println("SEQ_TRANIDOCSTATUS.nextval="+idocStatusRepository.getNextSequenceNextValue());
+//		System.out.println("SEQ_TRANIDOCSTATUS.currval="+idocStatusRepository.getNextSequenceCurrValue());
+		
+		
+		Long SEQ_TRANIDOCSTATUS = idocStatusRepository.getNextSequenceNextValue();
+		Long SEQ_TRANBOMHEAD = bomHeadRepository.getNextSequenceNextValue();
+		
 		/*---------------------- IdocStatus --------------------------------*/
-		IdocStatusRepository idocStatusRepository =  ctx.getBean(IdocStatusRepository.class);
+	
 		//idocStatusRepository.save(new IdocStatus("",new Date(),"",1,1,new Date(),1,1,new Date(),new Timestamp(15154)));
 		
 		/*---------------------- BomHead --------------------------------*/
-		BomHeadRepository bomHeadRepository =  ctx.getBean(BomHeadRepository.class);
+		
 		//bomHeadRepository.save(new BomHead("","","",new Date(),"","","",1,1,new Date(),new Date(),1,""));
 		
 		/*---------------------- BomItems --------------------------------*/
@@ -37,7 +50,6 @@ public class BomtestApplication {
 //			//System.out.println(" bom_id : " + bom.getBom_id() + " - Bom_status : " + bom.getBom_status()+"-bom.getBom_version_erp"+bom.getBom_version_erp());
 //		}
 		
-		System.out.println(bomHeadRepository.getNextSequenceValue());
 		
 	}
 
